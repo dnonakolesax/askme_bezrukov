@@ -1,0 +1,34 @@
+<header>
+    <nav class="navbar navbar-expand-sm navbar-dark fixed-top bg-primary">
+        <div class="container">
+		<a class="navbar-brand" href="{% url 'index' %}">Спроси у всезнамуса</a>
+            <div class="collapse navbar-collapse d-flex" id="navbarCollapse">
+                <form class="d-inline-flex flex-grow-1" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Search">
+                </form>
+                <form class="d-flex me-3">
+			<a href="{% url 'newq' %}" class="btn btn-outline-success bg-white" type="submit">Задать вопрос!</a>
+                </form>
+            </div>
+            {% if auth %}
+            <div class="row user-data">
+                <div class="col-3">
+                    <div class="user-avatar"><img src="../static/img/ava.png" alt="avatar"></div>
+                </div>
+                <div class="col-9 text-white text-center fw-semibold">
+                    <div class="nickname">kizaruhauntedfamily</div>
+                    <div class="panel text-center d-flex justify-content-around">
+                        <a href="#" class="link-light">settings</a>
+                        <a href="#" class="link-light"> log out</a>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+                 <div class="panel text-center">
+                        <a href="{% url 'login' %}" class="link-light mx-2">log in</a>
+                        <a href="{% url 'register' %}" class="link-light"> register</a>
+                    </div>
+            {% endif %}
+        </div>
+    </nav>
+</header>

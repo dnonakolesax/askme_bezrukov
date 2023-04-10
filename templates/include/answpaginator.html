@@ -1,0 +1,15 @@
+<div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="?page=1">первый</a></li>
+            {% if answers.has_previous %}
+            <li class="page-item"><a class="page-link" href="?page={{answers.previous_page_number}}"><< туда</a></li>
+            {% endif %}
+            <li class="page-item"><a class="page-link" href="#">{{answers.number}}</a></li>
+            {% if answers.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{answers.next_page_number}}">сюда >></a></li>
+            {% endif %}
+            <li class="page-item"><a class="page-link" href="?page=0">последний</a></li>
+        </ul>
+    </nav>
+</div>

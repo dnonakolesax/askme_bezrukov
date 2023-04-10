@@ -1,0 +1,32 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en" class="h-100">
+<head>
+    <meta charset="utf-8">
+    <title>Ответы егэ бесплатно без смс и регистрации</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sticky-footer-navbar/">
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" crossorigin="anonymous">
+    <link href="{% static 'css/index.css' %}" rel="stylesheet" crossorigin="anonymous">
+    <meta name="theme-color" content="#712cf9">
+</head>
+<body class="d-flex flex-column h-100">
+{% include 'include/navbar.html' %}
+
+
+<!-- Begin page content -->
+<main class="flex-shrink-0">
+    <div class="container">
+        <div class="row">
+                {% block content %} {% endblock %}
+            <div class="sidebar col-3">
+                {% include 'include/sidebar.html' %}
+            </div>
+        </div>
+    </div>
+</main>
+
+{% include 'include/footer.html' %}
+
+</body>
+</html>

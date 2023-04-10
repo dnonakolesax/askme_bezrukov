@@ -1,0 +1,16 @@
+{% extends "base.html" %} {% block content %}
+<div class="mt-3 mb-3">
+    <h1 class="d-inline me-3">Авторизация</h1></div>
+<div class="col-lg mb-3 mt-2">
+    <p>Ошибка!</p>
+    <div class="input-group"   style="width: 35%;">
+        <span class="input-group-text" id="nick">Логин</span>
+        <input type="text" class="form-control">
+    </div>
+     <div class="input-group mt-2"   style="width: 35%;">
+        <span class="input-group-text" id="pass">Пароль</span>
+        <input type="password" class="form-control">
+    </div>
+    <button class="mt-4 btn btn-primary" type="submit">Войти</button>
+</div>
+{% endblock %}
