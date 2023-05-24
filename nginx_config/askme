@@ -1,0 +1,32 @@
+upstream askme {
+	server 127.0.0.1:8000;
+}
+
+server {
+	gzip on;
+	gzip_types text/css text/javascript image/png;
+	gzip_comp_level 2;
+	listen 80 default_server;
+	server_name askme.com;
+
+	error_log /var/log/nginx/askme_error.log;
+	access_log /var/log/nginx/askme_access.log;
+
+	location ~* \.(jpg|jpeg|js|css)$ {
+		root /home/bg/tp/sem1/web/askme_bezrukov/static;
+	}
+
+	location /uploads {
+		root /home/bg/tp/sem1/web/askme_bezrukov/;
+	}
+
+
+	location / {
+		proxy_pass http://127.0.0.1:8000;
+		proxy_set_header Host $Host;
+		proxy_ssl_server_name on;
+		proxy_cache askme_zone;
+		proxy_cache_valid 200 302 10m;
+		proxy_cache_valid 404      1m;
+	}
+}

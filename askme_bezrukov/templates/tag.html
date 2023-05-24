@@ -1,0 +1,10 @@
+{% extends "base.html" %} {% block content %}
+<div class="mt-3 mb-3">
+<h1 class="">Вопросы по тегу {{ tag_name }}</h1> </div> 
+<div class="col-lg">
+    {% for question in questions %}
+                {% include 'include/question.html' %}
+    {% endfor %}
+    {% include 'include/paginator.html' %}
+</div>
+{% endblock %}
